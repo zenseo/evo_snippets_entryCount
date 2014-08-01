@@ -5,7 +5,7 @@
  * 指定フォルダ配下の公開記事件数を数えます。
  * 
  * @category	snippet
- * @version 	1.0.0
+ * @version 	1.0.1
  * @internal	@properties &parentId=parent;string;&depth=depth;string;&isFolder;is target folder;string;
  * @internal    @installset base
  * @author  	t.nishioka

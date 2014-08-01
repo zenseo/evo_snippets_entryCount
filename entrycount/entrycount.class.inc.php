@@ -3,8 +3,8 @@
  entryCount
 
  Author:t.nishioka
- Version:1.0.0
- LastUpdate:2013.06.12 
+ Version:1.0.1
+ LastUpdate:2014.05.30 
 
 */
 class entryCount
@@ -43,7 +43,10 @@ class entryCount
 		$arrChildren = $modx->getDocumentChildren($parentID, 1, 0, $this->fields, $this->where);
 
 		//再帰探索用サブフォルダのみの配列
-		$arrSubFolders = $modx->getDocumentChildren($parentID, 1, 0, $this->fields, $this->where_r);
+		$arrSubFolders = array_merge(
+			$modx->getDocumentChildren($parentID, 0, 0, $this->fields, $this->where_r), 
+			$modx->getDocumentChildren($parentID, 1, 0, $this->fields, $this->where_r)
+		);
 
 		//再帰処理中止判断 *endLevelは常に1
 		if($this->endLevel >= $depth){
